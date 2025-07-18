@@ -13,10 +13,14 @@ import lombok.NoArgsConstructor;
 public class Member {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false)
     private Long id;
 
     @Column(name = "name",nullable = false) // 또는 그냥 @Column 생략 가능
     private String name;
+
+    public void changeName(String name){
+        this.name = name;
+    }
 }
