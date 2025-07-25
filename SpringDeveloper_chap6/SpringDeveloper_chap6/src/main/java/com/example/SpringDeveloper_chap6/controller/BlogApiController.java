@@ -31,7 +31,7 @@ public class BlogApiController {
     public ResponseEntity<List<ArticleResponse>> findAllArticles() {
         List<ArticleResponse> articles = blogService.findAll()
                 .stream()
-                .map(ArticleResponse::new)
+                .map(ArticleResponse::new)//article -> ArticleResponse로 바꿔라!
                 .toList();
 
         return ResponseEntity.ok()
@@ -48,7 +48,7 @@ public class BlogApiController {
 
     @DeleteMapping("/api/articles/{id}")
     public ResponseEntity<Void> deleteArticle(@PathVariable("id") long id){
-        blogService.delelte(id);
+        blogService.delete(id);
 
         return ResponseEntity.ok().build();
     }
@@ -59,6 +59,6 @@ public class BlogApiController {
         Article updatedArticle = blogService.update(id, request);
 
         return ResponseEntity.ok()
-                .body(updatedArticle);
+                .body(updatedArticle); //body -> 본문을 실어서 내보내겠다.
     }
 }

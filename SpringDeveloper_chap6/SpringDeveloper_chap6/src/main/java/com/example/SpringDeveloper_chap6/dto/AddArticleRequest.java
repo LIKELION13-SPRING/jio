@@ -17,5 +17,5 @@ public class AddArticleRequest {
                 .title(title)
                 .content(content)
                 .build();
-    }
+    } //builder를 사용하는 이유는 가독성을 높이기 위해서
 }
